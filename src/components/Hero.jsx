@@ -27,6 +27,7 @@ export default function Hero() {
         style={{ backgroundImage: `url(${HERO_BG})` }}
         aria-hidden="true"
       />
+
       <div
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(5,11,15,.9)_0%,rgba(5,11,15,.72)_48%,rgba(5,11,15,.32)_100%),linear-gradient(0deg,#0B0B0E_0%,transparent_38%,rgba(5,11,15,.2)_100%)]"
         aria-hidden="true"
@@ -39,6 +40,7 @@ export default function Hero() {
             <span className="block text-[#08a6d9]">Endereço.</span>
           </h1>
         </div>
+
         <div className="order-2 flex justify-center md:justify-end">
           <div className="relative flex aspect-square w-[min(90vw,560px)] items-center justify-center">
             <div
@@ -52,6 +54,7 @@ export default function Hero() {
                     d="M 450,450 m -420,0 a 420,420 0 1,1 840,0 a 420,420 0 1,1 -840,0"
                   />
                 </defs>
+
                 <text
                   fill="currentColor"
                   fillOpacity=".28"
@@ -70,9 +73,10 @@ export default function Hero() {
                 </text>
               </svg>
             </div>
+
             <div className="relative z-10 w-[74%]">
               <ParticleLogo
-                src="/img/logo-estatus.png"
+                src={`${import.meta.env.BASE_URL}img/logo-estatus.png`}
                 alt="Estatus Lounge"
                 className="w-full"
               />
@@ -85,20 +89,24 @@ export default function Hero() {
         <p className="text-sm text-white/80 sm:text-base">
           Música, experiências, drinks e momentos inesquecíveis.
         </p>
+
         <div className="mt-3 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/90">
           <span className="inline-flex items-center gap-2">
             <MapPin size={16} className="text-[#00f2fe]" />
             Dionísio Cerqueira – SC
           </span>
+
           <span className="font-display text-base text-text">
             {openNow ? 'Aberto agora' : 'A partir das 18h'}
           </span>
         </div>
+
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           <MagneticLink href="#eventos" className="hero-cta-primary">
             Confira os eventos
             <ArrowUpRight size={18} />
           </MagneticLink>
+
           <MagneticLink
             href={MAP_ROUTE}
             target="_blank"

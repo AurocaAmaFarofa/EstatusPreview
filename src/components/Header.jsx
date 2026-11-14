@@ -12,6 +12,7 @@ export default function Header() {
   useEffect(() => {
     const updateHeader = () => setSolid(window.scrollY > 40)
     updateHeader()
+
     window.addEventListener('scroll', updateHeader, { passive: true })
     return () => window.removeEventListener('scroll', updateHeader)
   }, [])
@@ -21,8 +22,9 @@ export default function Header() {
 
     const previousBodyOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
+
     const focusFrame = window.requestAnimationFrame(() =>
-      closeRef.current?.focus(),
+      closeRef.current?.focus()
     )
 
     const handleKeyDown = (event) => {
@@ -32,9 +34,11 @@ export default function Header() {
       }
 
       if (event.key !== 'Tab' || !menuRef.current) return
+
       const focusable = menuRef.current.querySelectorAll(
-        'button:not([disabled]), a[href]',
+        'button:not([disabled]), a[href]'
       )
+
       const first = focusable[0]
       const last = focusable[focusable.length - 1]
 
@@ -79,13 +83,14 @@ export default function Header() {
             className="inline-flex min-h-11 min-w-11 items-center"
           >
             <img
-              src="/img/logo-estatus.png"
+              src={`${import.meta.env.BASE_URL}img/logo-estatus.png`}
               alt="Estatus Lounge"
               className={`w-auto transition-[height] duration-300 ${
                 solid ? 'h-9 md:h-10' : 'h-10 md:h-12'
               }`}
             />
           </a>
+
           <nav
             aria-label="Navegação principal"
             className="hidden items-center gap-8 md:flex"
@@ -100,6 +105,7 @@ export default function Header() {
               </a>
             ))}
           </nav>
+
           <button
             ref={triggerRef}
             type="button"
@@ -135,6 +141,7 @@ export default function Header() {
           >
             <X size={24} />
           </button>
+
           <nav aria-label="Navegação mobile" className="flex flex-col gap-5">
             {LINKS.map((link, index) => (
               <a
@@ -163,6 +170,7 @@ export default function Header() {
           <CalendarDays size={18} />
           Eventos
         </a>
+
         <a
           href={wa('Olá! Gostaria de consultar reservas no Estatus Lounge.')}
           target="_blank"
@@ -173,6 +181,7 @@ export default function Header() {
           <MessageCircle size={18} />
           Reservar
         </a>
+
         <a
           href={MAP_ROUTE}
           target="_blank"
